@@ -1,0 +1,66 @@
+Para desenvolver o sistema as seguintes ferramentas serão utilizadas:
+	Delphi - Telas e regras de negócios.
+	Firebird - SGBD para armazenamento dos dados.
+
+Os dados serão armazenado em um database contendo as seguinte tabelas e seus respectivos campos, tipos e breve descrição do dado armazenado:
+
+	CLIENTE
+		CLIENTE_ID 		INTEGER 	PK	Código do cliente.
+		NOME 			VARCHAR(30) 	Nome e sobrenome do cliente.
+		TELEFONE		VARCHAR(11)		Número do telefone do cliente. ex: 34988224433
+
+	HISTORICO
+		HISTORICO_ID	INTEGER		PK	Código do histórico da ligação.
+		DESCRICAO		VARCHAR(30)		Descrição da ligação.
+		TIPO_LIG		CHAR(1)			Tipo de ligação, onde: A=Ativa, R=Receptiva.
+
+	MOV_LIG
+		MOV_LIG_ID		INTEGER		PK	Código do Movimento de ligação.
+		CLIENTE_ID		INTEGER		FK	Código do cliente a qual a ligação pertence.
+		DATA_LIG		TIMESTAMP		Data e hora em que a ligação foi efetuada.
+
+	MOV_DETALHE
+		MOV_DETALHE_ID	INTEGER		PK	Identificador único do detalhe da movimentação de ligação
+		MOV_LIG_ID		INTEGER		FK	-
+		HISTORICO_ID	INTEGER		FK	-
+		OBSERVACAO		VARCHAR(60)		Observações registradas referente a ligação.
+
+Criando as telas em Delphi
+
+	Um DataModule contendo os componentes IBDatabase e IBTransaction, ambos para conexão com o banco.
+
+	Cada uma das demais telas terão os componentes de exibição e edição dos dados como DBEdit e DBCombobox.
+	Os dados serão buscado e enviados através dos componentes ligados da seguinte forma:
+		DataSource ligado -> ClientDataSet -> DataSetProvider -> IBQuery;
+		O ClientDataSet contém os campos e o IBQuery a SQL das tabelas usadas na tela.
+
+	Tela Principal
+		É a primeira tela a ser exibida, e a partir dela são exibidas as outras telas.
+		Tem o menus sistema contendo os seguintes sub-menus:
+			Cadastro de clientes: Cadastrar ou editar dados dos clientes.
+			Cadastro de histórico. Cadastrar ou editar os históricos de ligação.
+			Movimento de Ligação: Tem função de registrar uma ligação.
+			Consulta de Ligação: Exibe uma tela das ligações registradas.
+			Sair: Após a confirmação do usuário o sistema é finalizado.
+		Abaixo do menu haverá uma toolbar com botões padrões para navegação e manipulação de dados em um database, que será designado a tela ativa, ou seja, quando a tela de cadastro de cliente estiver ativa, os botões serão usados para inserir ou editar ou excluir um cliente.
+
+	Tela Cadastro de Cliente:
+		Grupo com os campos de pesquisa.
+		Campos para edição e inserção de dados de cliente são nome e telefone.
+		Uma grid(tabela) contendo os clientes cadastrados e filtrados pelo campo de pesquisa.
+		Os dados inseridos na tela serão armazenados na tabela CLIENTE do database. O código do clientes (CLIENTE_ID) é gerado automaticamente.
+
+	Tela Cadastro de Histórico de Ligação:
+		Grupo com os campos de pesquisa.
+		Campos para edição e inserção de dados de histórico de ligação são descrição e tipo de ligação.
+		Uma grid(tabela) contendo os históricos de ligações cadastradas e filtradas pelo campo de pesquisa.
+		Os dados inseridos na tela serão armazenados na tabela CLIENTE do database. O código do clientes (HISTORICO_ID) é gerado automaticamente.
+
+	Tela Movimento de Ligação:
+		Antes de exibir a tela Movimento de Ligação, será exibido uma pequena Modal para escolher o cliente através de uma lista de seleção e a data do registro da ligação. A tabela usada nessa parte é a MOV_LIG;
+		Definido o cliente, pode inserir o quanto necessário o tipo ligação e a observação referente ao e cliente data selecionada previamente. Nesse caso a tabela usada é a MOV_DETALHE.
+
+	Tela Consulta de Movimentação:
+		Grupo com os campos de pesquisa. Os campos são cliente, data inicial e data final e o botão Consultar.
+		Uma grid listando as ligações realizada.
+		Uma SQL é montada a partir dos dados inseridos no campos de pequisa e executada pelo IBQuery da tela.
