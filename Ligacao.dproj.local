@@ -2,24 +2,30 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2016/11/02 18:50:18.000.697,=C:\Users\suporte\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2016/11/02 19:01:31.000.432,C:\Users\suporte\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\Projetos\Ligacao\uPrincipal.pas</Transaction>
-    <Transaction>2016/11/02 19:01:31.000.432,C:\Users\suporte\Documents\Embarcadero\Studio\Projects\Unit1.dfm=D:\Projetos\Ligacao\uPrincipal.dfm</Transaction>
-    <Transaction>2016/11/02 19:01:38.000.063,C:\Users\suporte\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Projetos\Ligacao\Ligacao.dproj</Transaction>
+    <Transaction>2016/11/02 19:01:31.000.432,D:\Projetos\Ligacao\uPrincipal.dfm=C:\Users\suporte\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2016/11/02 19:01:31.000.432,D:\Projetos\Ligacao\uPrincipal.pas=C:\Users\suporte\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/11/02 19:01:38.000.063,D:\Projetos\Ligacao\Ligacao.dproj=C:\Users\suporte\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
     <Transaction>2016/11/02 19:35:44.000.801,=D:\Projetos\Ligacao\Unit1.pas</Transaction>
-    <Transaction>2016/11/02 19:36:03.000.655,D:\Projetos\Ligacao\Unit1.dfm=D:\Projetos\Ligacao\uDm.dfm</Transaction>
-    <Transaction>2016/11/02 19:36:03.000.655,D:\Projetos\Ligacao\Unit1.pas=D:\Projetos\Ligacao\uDm.pas</Transaction>
+    <Transaction>2016/11/02 19:36:03.000.655,D:\Projetos\Ligacao\uDm.pas=D:\Projetos\Ligacao\Unit1.pas</Transaction>
+    <Transaction>2016/11/02 19:36:03.000.655,D:\Projetos\Ligacao\uDm.dfm=D:\Projetos\Ligacao\Unit1.dfm</Transaction>
     <Transaction>2016/11/03 00:11:23.000.527,=D:\Projetos\Ligacao\Unit1.pas</Transaction>
-    <Transaction>2016/11/03 08:22:32.000.593,D:\Projetos\Ligacao\uBase.pas=D:\Projetos\Ligacao\Unit1.pas</Transaction>
-    <Transaction>2016/11/03 08:22:32.000.593,D:\Projetos\Ligacao\uBase.dfm=D:\Projetos\Ligacao\Unit1.dfm</Transaction>
+    <Transaction>2016/11/03 08:22:32.000.593,D:\Projetos\Ligacao\Unit1.dfm=D:\Projetos\Ligacao\uBase.dfm</Transaction>
+    <Transaction>2016/11/03 08:22:32.000.593,D:\Projetos\Ligacao\Unit1.pas=D:\Projetos\Ligacao\uBase.pas</Transaction>
     <Transaction>2016/11/03 12:07:35.000.989,=D:\Projetos\Ligacao\Unit1.pas</Transaction>
-    <Transaction>2016/11/03 12:10:08.000.246,D:\Projetos\Ligacao\uCliente.dfm=D:\Projetos\Ligacao\Unit1.dfm</Transaction>
-    <Transaction>2016/11/03 12:10:08.000.246,D:\Projetos\Ligacao\uCliente.pas=D:\Projetos\Ligacao\Unit1.pas</Transaction>
+    <Transaction>2016/11/03 12:10:08.000.246,D:\Projetos\Ligacao\Unit1.pas=D:\Projetos\Ligacao\uCliente.pas</Transaction>
+    <Transaction>2016/11/03 12:10:08.000.246,D:\Projetos\Ligacao\Unit1.dfm=D:\Projetos\Ligacao\uCliente.dfm</Transaction>
     <Transaction>2016/11/07 06:04:40.000.258,=D:\Projetos\Ligacao\Unit1.pas</Transaction>
-    <Transaction>2016/11/07 06:05:00.000.186,D:\Projetos\Ligacao\Unit1.pas=D:\Projetos\Ligacao\uHistorico.pas</Transaction>
-    <Transaction>2016/11/07 06:05:00.000.186,D:\Projetos\Ligacao\Unit1.dfm=D:\Projetos\Ligacao\uHistorico.dfm</Transaction>
-    <Transaction>2016/11/07 07:43:00.778,=D:\Projetos\Ligacao\Unit1.pas</Transaction>
-    <Transaction>2016/11/07 07:43:43.722,D:\Projetos\Ligacao\uDlgMovLigacao.dfm=D:\Projetos\Ligacao\Unit1.dfm</Transaction>
-    <Transaction>2016/11/07 07:43:43.722,D:\Projetos\Ligacao\uDlgMovLigacao.pas=D:\Projetos\Ligacao\Unit1.pas</Transaction>
-    <Transaction>2016/11/07 07:47:18.723,D:\Projetos\Ligacao\uDlgMovLigacao.pas=</Transaction>
+    <Transaction>2016/11/07 06:05:00.000.186,D:\Projetos\Ligacao\uHistorico.dfm=D:\Projetos\Ligacao\Unit1.dfm</Transaction>
+    <Transaction>2016/11/07 06:05:00.000.186,D:\Projetos\Ligacao\uHistorico.pas=D:\Projetos\Ligacao\Unit1.pas</Transaction>
+    <Transaction>2016/11/07 07:43:00.000.778,=D:\Projetos\Ligacao\Unit1.pas</Transaction>
+    <Transaction>2016/11/07 07:43:43.000.722,D:\Projetos\Ligacao\Unit1.dfm=D:\Projetos\Ligacao\uDlgMovLigacao.dfm</Transaction>
+    <Transaction>2016/11/07 07:43:43.000.722,D:\Projetos\Ligacao\Unit1.pas=D:\Projetos\Ligacao\uDlgMovLigacao.pas</Transaction>
+    <Transaction>2016/11/07 07:47:18.000.723,D:\Projetos\Ligacao\uDlgMovLigacao.pas=</Transaction>
+    <Transaction>2016/11/07 09:59:55.000.394,=D:\Cleber\delphi\ProjetoLigacao\Unit1.pas</Transaction>
+    <Transaction>2016/11/07 10:31:26.000.958,D:\Cleber\delphi\ProjetoLigacao\Unit1.pas=D:\Cleber\delphi\ProjetoLigacao\uMovLigacao.pas</Transaction>
+    <Transaction>2016/11/07 10:31:26.000.958,D:\Cleber\delphi\ProjetoLigacao\Unit1.dfm=D:\Cleber\delphi\ProjetoLigacao\uMovLigacao.dfm</Transaction>
+    <Transaction>2016/11/07 15:12:25.447,=D:\Cleber\delphi\ProjetoLigacao\Unit1.pas</Transaction>
+    <Transaction>2016/11/07 15:13:34.512,D:\Cleber\delphi\ProjetoLigacao\uConsulta.pas=D:\Cleber\delphi\ProjetoLigacao\Unit1.pas</Transaction>
+    <Transaction>2016/11/07 15:13:34.512,D:\Cleber\delphi\ProjetoLigacao\uConsulta.dfm=D:\Cleber\delphi\ProjetoLigacao\Unit1.dfm</Transaction>
   </Transactions>
 </BorlandProject>

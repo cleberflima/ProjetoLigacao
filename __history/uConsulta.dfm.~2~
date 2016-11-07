@@ -1,0 +1,111 @@
+inherited frmConsulta: TfrmConsulta
+  Caption = 'Consulta de Movimenta'#231#227'o'
+  ClientHeight = 351
+  ClientWidth = 597
+  ExplicitWidth = 613
+  ExplicitHeight = 390
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlTitulo: TPanel
+    Width = 597
+    Caption = ' Consulta de Movimenta'#231#227'o'
+  end
+  object grpPesquisa: TGroupBox
+    Left = 0
+    Top = 33
+    Width = 597
+    Height = 64
+    Align = alTop
+    Caption = 'Pesquisa'
+    TabOrder = 1
+    ExplicitLeft = -114
+    ExplicitWidth = 551
+    DesignSize = (
+      597
+      64)
+    object edtPNome: TLabeledEdit
+      Left = 11
+      Top = 32
+      Width = 263
+      Height = 19
+      Anchors = [akLeft, akTop, akRight]
+      CharCase = ecUpperCase
+      Ctl3D = False
+      EditLabel.Width = 27
+      EditLabel.Height = 13
+      EditLabel.Caption = 'Nome'
+      ParentCtl3D = False
+      TabOrder = 0
+      ExplicitWidth = 217
+    end
+    object btnFiltrar: TBitBtn
+      Left = 518
+      Top = 28
+      Width = 72
+      Height = 25
+      Anchors = [akTop, akRight]
+      Caption = 'Filtrar'
+      TabOrder = 1
+      ExplicitLeft = 472
+    end
+    object edtPDataIni: TDateTimePicker
+      Left = 280
+      Top = 32
+      Width = 113
+      Height = 19
+      Anchors = [akTop, akRight]
+      Date = 42681.631615300920000000
+      Time = 42681.631615300920000000
+      TabOrder = 2
+    end
+    object edtPDataFim: TDateTimePicker
+      Left = 399
+      Top = 32
+      Width = 113
+      Height = 19
+      Anchors = [akTop, akRight]
+      Date = 42681.631615300920000000
+      Time = 42681.631615300920000000
+      TabOrder = 3
+    end
+  end
+  object grdClientes: TDBGrid
+    Left = 0
+    Top = 97
+    Width = 597
+    Height = 254
+    Align = alClient
+    Ctl3D = False
+    DataSource = dm.dsMovDet
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ParentCtl3D = False
+    TabOrder = 2
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'MOV_DETALHE_ID'
+        Title.Alignment = taCenter
+        Title.Caption = 'ID'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'HISTORICO'
+        Title.Alignment = taCenter
+        Width = 204
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'OBSERVACAO'
+        Title.Alignment = taCenter
+        Width = 247
+        Visible = True
+      end>
+  end
+end

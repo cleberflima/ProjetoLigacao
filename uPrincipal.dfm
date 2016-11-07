@@ -13,6 +13,8 @@ object frmPrincipal: TfrmPrincipal
   FormStyle = fsMDIForm
   Menu = MainMenu1
   OldCreateOrder = False
+  Position = poDesktopCenter
+  WindowState = wsMaximized
   OnCloseQuery = FormCloseQuery
   PixelsPerInch = 96
   TextHeight = 13
@@ -55,11 +57,9 @@ object frmPrincipal: TfrmPrincipal
         Caption = 'Cadastro de &Hist'#243'rico'
         OnClick = CadastrodeHistrico1Click
       end
-      object MovimentodeLigao1: TMenuItem
-        Caption = 'Movimento de &Liga'#231#227'o'
-      end
       object ConsultadeLigao1: TMenuItem
         Caption = 'C&onsulta de Liga'#231#227'o'
+        OnClick = ConsultadeLigao1Click
       end
       object N1: TMenuItem
         Caption = '-'

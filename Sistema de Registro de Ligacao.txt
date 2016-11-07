@@ -49,6 +49,7 @@ Criando as telas em Delphi
 		Campos para edição e inserção de dados de cliente são nome e telefone.
 		Uma grid(tabela) contendo os clientes cadastrados e filtrados pelo campo de pesquisa.
 		Os dados inseridos na tela serão armazenados na tabela CLIENTE do database. O código do clientes (CLIENTE_ID) é gerado automaticamente.
+        No rodapé tem o botão
 
 	Tela Cadastro de Histórico de Ligação:
 		Grupo com os campos de pesquisa.

@@ -13,7 +13,6 @@ type
     Sistema1: TMenuItem;
     CadastrodeCliente1: TMenuItem;
     CadastrodeHistrico1: TMenuItem;
-    MovimentodeLigao1: TMenuItem;
     ConsultadeLigao1: TMenuItem;
     N1: TMenuItem;
     Sair1: TMenuItem;
@@ -24,6 +23,7 @@ type
     procedure Sair1Click(Sender: TObject);
     procedure CadastrodeCliente1Click(Sender: TObject);
     procedure CadastrodeHistrico1Click(Sender: TObject);
+    procedure ConsultadeLigao1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,7 +38,7 @@ implementation
 
 {$R *.dfm}
 
-uses uDm, uBase, uCliente, uHistorico;
+uses uDm, uBase, uCliente, uHistorico, uConsulta;
 
 procedure TfrmPrincipal.CadastrodeCliente1Click(Sender: TObject);
 begin
@@ -48,6 +48,11 @@ end;
 procedure TfrmPrincipal.CadastrodeHistrico1Click(Sender: TObject);
 begin
   CriaForm(TfrmHistorico, frmHistorico);
+end;
+
+procedure TfrmPrincipal.ConsultadeLigao1Click(Sender: TObject);
+begin
+  CriaForm(TfrmConsulta, frmConsulta);
 end;
 
 procedure TfrmPrincipal.CriaForm(formClass: TComponentClass; var referencia);

@@ -6,7 +6,9 @@ uses
   uDm in 'uDm.pas' {dm: TDataModule},
   uBase in 'uBase.pas' {frmBase},
   uCliente in 'uCliente.pas' {frmCliente},
-  uHistorico in 'uHistorico.pas' {frmHistorico};
+  uHistorico in 'uHistorico.pas' {frmHistorico},
+  uMovLigacao in 'uMovLigacao.pas' {frmMovDetalhe},
+  uConsulta in 'uConsulta.pas' {frmConsulta};
 
 {$R *.res}
 

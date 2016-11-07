@@ -1,0 +1,43 @@
+unit uMovLigacao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uBase, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.Mask, Vcl.DBCtrls, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls;
+
+type
+  TfrmBase1 = class(TfrmBase)
+    grpPesquisa: TGroupBox;
+    edtPCodigo: TLabeledEdit;
+    edtPNome: TLabeledEdit;
+    edtPFone: TLabeledEdit;
+    btnFiltrar: TBitBtn;
+    grpDados: TGroupBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    edtNome: TDBEdit;
+    edtFone: TDBEdit;
+    grdClientes: TDBGrid;
+    GroupBox1: TGroupBox;
+    Label3: TLabel;
+    DBEdit1: TDBEdit;
+    DBLookupComboBox1: TDBLookupComboBox;
+    Label4: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmBase1: TfrmBase1;
+
+implementation
+
+{$R *.dfm}
+
+uses uDm;
+
+end.

@@ -5,12 +5,13 @@ inherited frmHistorico: TfrmHistorico
   OnActivate = FormActivate
   OnCreate = FormCreate
   ExplicitWidth = 599
-  ExplicitHeight = 433
+  ExplicitHeight = 434
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlTitulo: TPanel
     Width = 583
     Caption = ' Cadastro de Hist'#243'rico'
+    ExplicitWidth = 583
   end
   object grpPesquisa: TGroupBox
     Left = 0
@@ -20,8 +21,6 @@ inherited frmHistorico: TfrmHistorico
     Align = alTop
     Caption = 'Pesquisa'
     TabOrder = 1
-    ExplicitTop = 39
-    ExplicitWidth = 437
     DesignSize = (
       583
       64)
@@ -58,7 +57,6 @@ inherited frmHistorico: TfrmHistorico
       EditLabel.Caption = 'Descri'#231#227'o'
       ParentCtl3D = False
       TabOrder = 1
-      ExplicitWidth = 87
     end
     object btnFiltrar: TBitBtn
       Left = 504
@@ -69,7 +67,6 @@ inherited frmHistorico: TfrmHistorico
       Caption = 'Filtrar'
       TabOrder = 2
       OnClick = btnFiltrarClick
-      ExplicitLeft = 358
     end
     object edtPTipo: TComboBox
       Left = 377
@@ -95,8 +92,6 @@ inherited frmHistorico: TfrmHistorico
     Align = alTop
     Caption = 'Hist'#243'rico de liga'#231#227'o'
     TabOrder = 2
-    ExplicitTop = 103
-    ExplicitWidth = 437
     DesignSize = (
       583
       64)
@@ -127,7 +122,6 @@ inherited frmHistorico: TfrmHistorico
       DataSource = dm.dsHistorico
       ParentCtl3D = False
       TabOrder = 0
-      ExplicitWidth = 292
     end
     object DBComboBox1: TDBComboBox
       Left = 455

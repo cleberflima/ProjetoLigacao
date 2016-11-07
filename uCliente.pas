@@ -28,6 +28,7 @@ type
     procedure btnFiltrarClick(Sender: TObject);
     procedure FDataSourceStateChange(Sender: TObject); override;
     procedure FormCreate(Sender: TObject);
+    procedure btnMovLigaçãoClick(Sender: TObject);
   private
     { Private declarations }
 
@@ -42,7 +43,7 @@ implementation
 
 {$R *.dfm}
 
-uses uDm, uPrincipal;
+uses uDm, uPrincipal, uMovLigacao;
 
 procedure TfrmCliente.btnFiltrarClick(Sender: TObject);
 var
@@ -64,6 +65,32 @@ begin
     dm.addWhere(dm.qryCliente, '(TELEFONE = ''' + tel + ''' )');
 
   dm.openDat(dm.datCliente);
+end;
+
+procedure TfrmCliente.btnMovLigaçãoClick(Sender: TObject);
+var
+  agora : TDateTime;
+  mens : PWideChar;
+  movLigId : Integer;
+begin
+  inherited;
+  agora := now;
+  mens := PWideChar('Deseja regitrar para o cliente ' + #13#10 +  dm.datClienteNOME.AsString + ' às ' + FormatDateTime('dd/MM/YYYY hh:nn:ss', agora));
+  if Application.MessageBox(mens, 'Registrar Ligação', MB_YESNO + MB_ICONQUESTION ) = mrYes then
+  begin
+    try
+      movLigId := dm.getGeneratorMovLigacao;
+      dm.FClienteId := dm.datClienteCLIENTE_ID.AsInteger;
+      dm.FDataHoraLigacao := agora;
+      dm.openDat(dm.datMovLig);
+      dm.datMovLig.Append;
+      dm.datMovLigDATA_LIG.Value := agora;
+      dm.datMovLig.Post;
+      frmPrincipal.CriaForm(TfrmMovDetalhe, frmMovDetalhe);
+    except on E: Exception do
+      showMessage('Erro ao registrar ligação ' + #13#10 + e.Message);
+    end;
+  end;
 end;
 
 procedure TfrmCliente.FDataSourceStateChange(Sender: TObject);
@@ -90,6 +117,8 @@ begin
   inherited;
   FDataSource := dm.dsCliente;
   FDataSource.OnStateChange := FDataSourceStateChange;
+  dm.openDat(dm.datCliente);
 end;
 
 end.
+
