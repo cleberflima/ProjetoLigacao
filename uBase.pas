@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Data.DB ;
 
 type
   TfrmBase = class(TForm)
@@ -12,6 +12,10 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
+
+  protected
+    FDataSource : TDataSource;
+    procedure FDataSourceStateChange(Sender: TObject); virtual; abstract;
   public
     { Public declarations }
   end;

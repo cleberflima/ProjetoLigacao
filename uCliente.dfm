@@ -1,6 +1,8 @@
 inherited frmCliente: TfrmCliente
   Caption = 'Cadastro de Cliente'
   ClientHeight = 303
+  OnActivate = FormActivate
+  OnCreate = FormCreate
   ExplicitHeight = 341
   PixelsPerInch = 96
   TextHeight = 13
@@ -23,6 +25,7 @@ inherited frmCliente: TfrmCliente
       Top = 32
       Width = 121
       Height = 19
+      CharCase = ecUpperCase
       Ctl3D = False
       EditLabel.Width = 33
       EditLabel.Height = 13
@@ -30,12 +33,13 @@ inherited frmCliente: TfrmCliente
       ParentCtl3D = False
       TabOrder = 0
     end
-    object LabeledEdit1: TLabeledEdit
+    object edtPNome: TLabeledEdit
       Left = 138
       Top = 32
       Width = 87
       Height = 19
       Anchors = [akLeft, akTop, akRight]
+      CharCase = ecUpperCase
       Ctl3D = False
       EditLabel.Width = 27
       EditLabel.Height = 13
@@ -43,12 +47,13 @@ inherited frmCliente: TfrmCliente
       ParentCtl3D = False
       TabOrder = 1
     end
-    object LabeledEdit2: TLabeledEdit
+    object edtPFone: TLabeledEdit
       Left = 231
       Top = 32
       Width = 121
       Height = 19
       Anchors = [akTop, akRight]
+      CharCase = ecUpperCase
       Ctl3D = False
       EditLabel.Width = 42
       EditLabel.Height = 13
@@ -64,6 +69,7 @@ inherited frmCliente: TfrmCliente
       Anchors = [akTop, akRight]
       Caption = 'Filtrar'
       TabOrder = 3
+      OnClick = btnFiltrarClick
     end
   end
   object grpDados: TGroupBox
@@ -92,24 +98,26 @@ inherited frmCliente: TfrmCliente
       Anchors = [akTop, akRight]
       Caption = 'Telefone'
     end
-    object DBEdit2: TDBEdit
+    object edtNome: TDBEdit
       Left = 11
       Top = 35
       Width = 292
       Height = 19
       Anchors = [akLeft, akTop, akRight]
+      CharCase = ecUpperCase
       Ctl3D = False
       DataField = 'NOME'
       DataSource = dm.dsCliente
       ParentCtl3D = False
       TabOrder = 0
     end
-    object DBEdit1: TDBEdit
+    object edtFone: TDBEdit
       Left = 309
       Top = 35
       Width = 121
       Height = 19
       Anchors = [akTop, akRight]
+      CharCase = ecUpperCase
       Ctl3D = False
       DataField = 'TELEFONE'
       DataSource = dm.dsCliente
@@ -117,7 +125,7 @@ inherited frmCliente: TfrmCliente
       TabOrder = 1
     end
   end
-  object DBGrid1: TDBGrid
+  object grdClientes: TDBGrid
     Left = 0
     Top = 161
     Width = 437
@@ -136,21 +144,22 @@ inherited frmCliente: TfrmCliente
     Columns = <
       item
         Expanded = False
+        FieldName = 'CLIENTE_ID'
         Title.Alignment = taCenter
         Title.Caption = 'ID'
         Visible = True
       end
       item
         Expanded = False
+        FieldName = 'NOME'
         Title.Alignment = taCenter
-        Title.Caption = 'NOME'
         Width = 200
         Visible = True
       end
       item
         Expanded = False
+        FieldName = 'TELEFONE'
         Title.Alignment = taCenter
-        Title.Caption = 'TELEFONE'
         Width = 100
         Visible = True
       end>

@@ -1,7 +1,7 @@
 object dm: Tdm
   OldCreateOrder = False
   Height = 233
-  Width = 282
+  Width = 412
   object db: TIBDatabase
     Connected = True
     DatabaseName = 'd:\db\ligacao.fdb'
@@ -28,7 +28,8 @@ object dm: Tdm
     CachedUpdates = False
     ParamCheck = True
     SQL.Strings = (
-      'select * from CLIENTE')
+      'SELECT * FROM CLIENTE'
+      'WHERE CLIENTE_ID IS NOT NULL')
     Left = 192
     Top = 72
   end
@@ -42,6 +43,8 @@ object dm: Tdm
     Aggregates = <>
     Params = <>
     ProviderName = 'dspCliente'
+    AfterInsert = datClienteAfterInsert
+    AfterPost = datClienteAfterPost
     Left = 72
     Top = 72
     object datClienteCLIENTE_ID: TIntegerField
@@ -64,6 +67,16 @@ object dm: Tdm
   object dspCliente: TDataSetProvider
     DataSet = qryCliente
     Left = 136
+    Top = 72
+  end
+  object sqlGenCliente: TIBSQL
+    Database = db
+    SQL.Strings = (
+      
+        'SELECT GEN_ID(GEN_CLIENTE_ID, 1) AS GEN_CLIENTE_ID FROM RDB$DATA' +
+        'BASE')
+    Transaction = tr
+    Left = 256
     Top = 72
   end
 end
