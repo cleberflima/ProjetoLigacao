@@ -23,6 +23,7 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure Sair1Click(Sender: TObject);
     procedure CadastrodeCliente1Click(Sender: TObject);
+    procedure CadastrodeHistrico1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,11 +38,16 @@ implementation
 
 {$R *.dfm}
 
-uses uDm, uBase, uCliente;
+uses uDm, uBase, uCliente, uHistorico;
 
 procedure TfrmPrincipal.CadastrodeCliente1Click(Sender: TObject);
 begin
   CriaForm(TfrmCliente, frmCliente);
+end;
+
+procedure TfrmPrincipal.CadastrodeHistrico1Click(Sender: TObject);
+begin
+  CriaForm(TfrmHistorico, frmHistorico);
 end;
 
 procedure TfrmPrincipal.CriaForm(formClass: TComponentClass; var referencia);

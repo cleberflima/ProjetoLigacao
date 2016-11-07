@@ -7,6 +7,7 @@ uses
   Datasnap.DBClient, IBX.IBCustomDataSet, IBX.IBQuery, IBX.IBSQL;
 
 const SQL_CLIENTE : string = 'SELECT * FROM CLIENTE' + #13#10 + 'WHERE CLIENTE_ID IS NOT NULL';
+const SQL_HISTORICO : string = 'SELECT * FROM HISTORICO' + #13#10 + 'WHERE HISTORICO.HISTORICO IS NOT NULL';
 
 type
   Tdm = class(TDataModule)
@@ -20,19 +21,28 @@ type
     datClienteNOME: TWideStringField;
     datClienteTELEFONE: TWideStringField;
     sqlGenCliente: TIBSQL;
+    qryHistorico: TIBQuery;
+    dsHistorico: TDataSource;
+    dspHistorico: TDataSetProvider;
+    sqlGenHistorico: TIBSQL;
+    datHistorico: TClientDataSet;
+    datHistoricoHISTORICO: TIntegerField;
+    datHistoricoDESCRICAO: TWideStringField;
+    datHistoricoTIPO_LIG: TWideStringField;
     procedure datClienteAfterInsert(DataSet: TDataSet);
     procedure datClienteAfterPost(DataSet: TDataSet);
+    procedure datHistoricoAfterInsert(DataSet: TDataSet);
+    procedure datHistoricoAfterPost(DataSet: TDataSet);
   private
     { Private declarations }
-    FsqlCliente: string;
   public
     { Public declarations }
-    procedure resetSqlCliente;              //restaura a sql qryCliente.sql para SQL_CLIENTE
-    procedure addWhereCliente(s: string);   //adiciona 'AND s' no qryCliente.sql
-    procedure openCliente;                  //Fecha e abre a o datset recarregando a consulta que está no qryCliente.sql
-    function getGeneratorCliente: Integer;  //Função que pega o próximo generator da tabela CLIENTE
-    procedure commit;                       //Aplica as pendências no banco contida na transação tr.
-
+    procedure resetQrySql(const sql:string; qry:TIBQuery); //restaura a sql qryCliente.sql para SQL_CLIENTE
+    procedure addWhere(qry:TIBQuery; s: string);    //adiciona 'AND s' no qry.sql
+    procedure openDat(dat: TClientDataSet);                                 //Fecha e abre a o datset recarregando a consulta que está no qryCliente.sql
+    procedure commit;                                      //Aplica as pendências no banco contida na transação tr.
+    function getGeneratorCliente: Integer;                 //Função que pega o próximo generator da tabela CLIENTE
+    function getGeneratorHistorico: Integer;               //Função que pega o próximo generator da tabela HISTORICO
   end;
 
 var
@@ -46,9 +56,10 @@ implementation
 
 { Tdm }
 
-procedure Tdm.addWhereCliente(s: string);
+
+procedure Tdm.addWhere(qry: TIBQuery; s: string);
 begin
-  qryCliente.SQL.Add('AND ' + s);
+  qry.SQL.Add('AND ' + s);
 end;
 
 procedure Tdm.commit;
@@ -72,6 +83,17 @@ begin
   commit;
 end;
 
+procedure Tdm.datHistoricoAfterInsert(DataSet: TDataSet);
+begin
+  datHistoricoHISTORICO.Value := getGeneratorHistorico;
+end;
+
+procedure Tdm.datHistoricoAfterPost(DataSet: TDataSet);
+begin
+  datHistorico.ApplyUpdates(0);
+  commit;
+end;
+
 function Tdm.getGeneratorCliente: Integer;
 begin
   sqlGenCliente.Close;
@@ -79,16 +101,23 @@ begin
   Result := sqlGenCliente.FieldByName('GEN_CLIENTE_ID').AsInteger;
 end;
 
-procedure Tdm.openCliente;
+function Tdm.getGeneratorHistorico: Integer;
 begin
-  datCliente.Close;
-  datCliente.Open;
+  sqlGenHistorico.Close;
+  sqlGenHistorico.ExecQuery;
+  Result := sqlGenHistorico.FieldByName('ID_GERADO').AsInteger;
 end;
 
-procedure Tdm.resetSqlCliente;
+procedure Tdm.openDat(dat: TClientDataSet);
 begin
-  qryCliente.SQL.Clear;
-  qryCliente.SQL.Add(SQL_CLIENTE);
+  dat.Close;
+  dat.Open;
+end;
+
+procedure Tdm.resetQrySql(const sql: string; qry: TIBQuery);
+begin
+  qry.SQL.Clear;
+  qry.SQL.Add(sql);
 end;
 
 end.

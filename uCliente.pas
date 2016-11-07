@@ -21,6 +21,8 @@ type
     Label1: TLabel;
     Label2: TLabel;
     grdClientes: TDBGrid;
+    Panel1: TPanel;
+    btnMovLigação: TBitBtn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormActivate(Sender: TObject);
     procedure btnFiltrarClick(Sender: TObject);
@@ -50,18 +52,18 @@ begin
   nome := Trim(edtPNome.Text);
   tel  := Trim(edtPFone.Text);
 
-  dm.resetSqlCliente;
+  dm.resetQrySql(SQL_CLIENTE, dm.qryCliente);
 
   if ids <> '' then
-    dm.addWhereCliente('CLIENTE_ID IN (' + ids +')');
+    dm.addWhere(dm.qryCliente, 'CLIENTE_ID IN (' + ids +')');
 
   if nome <> '' then
-    dm.addWhereCliente('(NOME LIKE ''%' + nome + '%'')');
+    dm.addWhere(dm.qryCliente, '(NOME LIKE ''%' + nome + '%'')');
 
   if tel <> '' then
-    dm.addWhereCliente('(TELEFONE = ''' + tel + ''' )');
+    dm.addWhere(dm.qryCliente, '(TELEFONE = ''' + tel + ''' )');
 
-  dm.openCliente;
+  dm.openDat(dm.datCliente);
 end;
 
 procedure TfrmCliente.FDataSourceStateChange(Sender: TObject);

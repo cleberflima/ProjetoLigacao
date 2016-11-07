@@ -53,6 +53,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object CadastrodeHistrico1: TMenuItem
         Caption = 'Cadastro de &Hist'#243'rico'
+        OnClick = CadastrodeHistrico1Click
       end
       object MovimentodeLigao1: TMenuItem
         Caption = 'Movimento de &Liga'#231#227'o'
